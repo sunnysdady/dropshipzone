@@ -29,7 +29,7 @@ button, .stButton > button {
 .stSelectbox > div > div,
 .stTextInput > div > div,
 .stNumberInput > div > div {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #d1d1d1;
 }
 
@@ -40,21 +40,6 @@ button, .stButton > button {
 
 /* ---------- Sidebar 背景、间距 ---------- */
 section[data-testid="stSidebar"] {
-  background: #fafafa;
+  background: #f7f7f7;
   padding-top: 1rem;
-}
-
-/* ---------- 文件上传区（拖拽感） ---------- */
-.stFileUploader > div > div {
-  border: 2px dashed #d1d1d1 !important;
-  border-radius: 12px !important;
-  background: #fafafa;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* ---------- Modal（Apple Dialog） ---------- */
-.antd-modal .ant-modal-content {
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
