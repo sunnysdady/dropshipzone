@@ -3,13 +3,9 @@ html, body, .stApp, .stSidebar, .stMarkdown, .stDataFrame {
   background-color: #1e1e1e !important;
   color: #e0e0e0 !important;
 }
-
-/* 暗黑模式下的按钮 */
 button, .stButton > button {
   background: linear-gradient(180deg, #0a84ff 0%, #0062d1 100%) !important;
 }
-
-/* 输入框、下拉框暗色 */
 .stSelectbox > div > div,
 .stTextInput > div > div,
 .stNumberInput > div > div {
@@ -17,8 +13,6 @@ button, .stButton > button {
   border: 1px solid #555;
   color: #e0e0e0;
 }
-
-/* 表格 Hover */
 [data-testid="stDataFrame"] tbody tr:hover {
   background-color: #2a2a2a;
 }
