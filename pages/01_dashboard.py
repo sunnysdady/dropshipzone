@@ -1,30 +1,25 @@
 import streamlit as st
-import asyncio
 import pandas as pd
-from services.order_service import OrderService
-from services.product_service import ProductService
+import numpy as np
 
 def run():
     st.title("📊 运营看板")
+    st.write("这是一个最小化的看板，用于展示核心数据结构。请在实际环境中替换成真实数据源。")
 
-    # ---- 订单概览 ----
-    order_svc = OrderService()
-    with st.spinner("加载订单数据…"):
-        orders_resp = asyncio.run(order_svc.list_orders(limit=100))
-    if orders_resp["success"]:
-        df_orders = pd.json_normalize(orders_resp["data"]["orders"])
-        st.subheader("最近订单")
-        st.dataframe(df_orders[['order_id','status','grand_total','created_at']])
-    else:
-        st.error(f"获取订单失败：{orders_resp['error']}")
+    # 模拟数据（可替换成自定义 API 调用）
+    data = {
+        "指标": ["总订单数", "已发货", "待处理", "总收入"],
+        "数值": [120, 95, 25, 25840]
+    }
+    df = pd.DataFrame(data)
+    st.table(df)
 
-    # ---- 商品库存概览 ----
-    prod_svc = ProductService()
-    with st.spinner("加载库存数据…"):
-        prod_resp = asyncio.run(prod_svc.list_all(limit=200, status=1))
-    if prod_resp["success"]:
-        df_prod = pd.json_normalize(prod_resp["data"]["products"])
-        st.subheader("商品库存")
-        st.dataframe(df_prod[['sku','name','stock','price']])
-    else:
-        st.error(f"获取商品失败：{prod_resp['error']}")
+    # 最近订单（示意）
+    recent = pd.DataFrame({
+        "order_id": [f"DSZ-{i:04d}" for i in range(1, 6)],
+        "status": ["complete", "processing", "canceled", "complete", "processing"],
+        "amount": [120.5, 89.0, 15.0, 60.0, 75.2],
+        "date": pd.date_range(end=pd.Timestamp.today(), periods=5).to_pydatetime().tolist()
+    })
+    st.subheader("最近订单")
+    st.dataframe(recent)
