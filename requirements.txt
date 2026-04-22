@@ -1,0 +1,10 @@
+streamlit>=1.35
+streamlit-antd-components>=0.2.4
+streamlit-shortcuts>=1.0.0      # 键盘快捷键（可选，但已经集成）
+python-dotenv>=1.0
+loguru>=0.7
+webdriver-manager>=4.0
+selenium>=4.18
+httpx>=0.27
+pandas>=2.2
+openpyxl>=3.1
